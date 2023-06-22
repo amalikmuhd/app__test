@@ -1,19 +1,43 @@
-const ChartData = ({selectedTicker, tickerData}) => {
+import {
+  Area,
+  AreaChart,
+  CartesianGrid,
+  ResponsiveContainer,
+  Tooltip,
+  XAxis,
+  YAxis,
+} from 'recharts';
+
+import '../styles/ChartData.css';
+
+const ChartData = ({tickerGraphData}) => {
   return (
-    <div className="ticker-data">
-      <h2 className="ticker-heading">{selectedTicker} Data:</h2>
-      <div className="chart">
-        {tickerData.map((trade, index) => (
-          <div
-            key={index}
-            className={`chart-item`}
-            style={{
-              height: `${Math.abs(trade[1] - trade[2])}%`,
-              background: trade[1] - trade[2] > 0 ? 'red' : 'green',
-            }}
-          ></div>
-        ))}
-      </div>
+    <div className="chart-data-container">
+      <ResponsiveContainer width="100%" height={'100%'}>
+        <AreaChart
+          width={'100%'}
+          height={'100%'}
+          data={tickerGraphData}
+          syncId="anyId"
+          margin={{
+            top: 10,
+            right: 30,
+            left: 0,
+            bottom: 0,
+          }}
+        >
+          <CartesianGrid strokeDasharray="3 3" />
+          <XAxis dataKey="timestamp" />
+          <YAxis dataKey="price" />
+          <Tooltip />
+          <Area
+            type="monotone"
+            dataKey="price"
+            stroke="#82ca9d"
+            fill="#82ca9d"
+          />
+        </AreaChart>
+      </ResponsiveContainer>
     </div>
   );
 };

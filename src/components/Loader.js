@@ -1,7 +1,7 @@
-import "../styles/loader.css";
+import '../styles/Loader.css';
 const Loader = () => {
   return (
-    <div className="loaderContainer">
+    <div className="loaderContainer" data-testid="loader">
       <div className="lds-ring">
         <div></div>
         <div></div>

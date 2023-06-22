@@ -1,20 +1,34 @@
 import React, {useState, useEffect, useCallback} from 'react';
 
-import TickerService from '../services/TickerService';
-
+import Layout from '../components/Layout';
 import SelectDropdown from '../components/SelectDropdown';
-import TradeData from '../components/TradeData';
+import Market from '../components/Market';
+import TradeToday from '../components/TradeToday';
 import ChartData from '../components/ChartData';
 
-import '../styles/ticker.css';
-import Loader from '../components/Loader';
+import TickerService from '../services/TickerService';
+
+import '../styles/Content.css';
 
 const Ticker = () => {
+  const [showDropdown, setShowDropdown] = useState(false);
   const [tickers, setTickers] = useState([]);
   const [selectedTicker, setSelectedTicker] = useState('');
-  const [tickerData, setTickerData] = useState([]);
+  const [tickerTableData, setTickerTableData] = useState([]);
+  const [tickerGraphData, setTickerGraphData] = useState([]);
   const [loading, setLoading] = useState(false);
 
+  // Process data for the chart
+  const processData = (data) => {
+    return data.map((item) => {
+      return {
+        timestamp: item.timestamp,
+        price: item.price,
+      };
+    });
+  };
+
+  // Fetch ticker data from the API
   const fetchTickers = useCallback(() => {
     setLoading(true);
     try {
@@ -26,7 +40,9 @@ const Ticker = () => {
         setSelectedTicker(data[0]);
         TickerService.getTradesData(data[0])
           .then((data) => {
-            setTickerData(data.data);
+            const series = processData(data.data);
+            setTickerGraphData(series);
+            setTickerTableData(data.data);
           })
           .then(() => {
             setLoading(false);
@@ -36,6 +52,7 @@ const Ticker = () => {
       console.log(error);
       alert('Error fetching data get Ticker in app.js');
     }
+    setLoading(false);
   }, []);
 
   // Fetch available tickers from the API
@@ -43,12 +60,15 @@ const Ticker = () => {
     fetchTickers();
   }, [fetchTickers]);
 
-  const handleTickerChange = (event) => {
+  // Handle ticker change
+  const handleTickerChange = (ticker) => {
     setLoading(true);
-    setSelectedTicker(event.target.value);
-    TickerService.getTradesData(event.target.value)
+    setSelectedTicker(ticker);
+    TickerService.getTradesData(ticker)
       .then((data) => {
-        setTickerData(data.data);
+        const series = processData(data.data);
+        setTickerGraphData(series);
+        setTickerTableData(data.data);
       })
       .then(() => {
         setLoading(false);
@@ -56,33 +76,34 @@ const Ticker = () => {
   };
 
   return (
-    <div className="wrapper">
-      <div className="container">
-        <h1 className="title">Bitfinex Ticker Data</h1>
+    <Layout>
+      <div className="content-container">
+        <div className="card-container">
+          <ChartData tickerGraphData={tickerGraphData} />
 
-        <SelectDropdown
+          <TradeToday
+            selectedTicker={selectedTicker}
+            setShowDropdown={setShowDropdown}
+            showDropdown={showDropdown}
+          />
+        </div>
+
+        <Market
+          loading={loading}
           selectedTicker={selectedTicker}
-          handleTickerChange={handleTickerChange}
+          tickerTableData={tickerTableData}
+        />
+      </div>
+
+      {showDropdown && (
+        <SelectDropdown
+          setShowDropdown={setShowDropdown}
           tickers={tickers}
           loading={loading}
+          handleTickerChange={handleTickerChange}
         />
-
-        {loading || (
-          <div style={{display: 'flex'}}>
-            <TradeData
-              selectedTicker={selectedTicker}
-              tickerData={tickerData}
-            />
-            <br />
-            <ChartData
-              selectedTicker={selectedTicker}
-              tickerData={tickerData}
-            />
-          </div>
-        )}
-        {loading && <Loader />}
-      </div>
-    </div>
+      )}
+    </Layout>
   );
 };
 

@@ -1,0 +1,38 @@
+.trade-today-container {
+  padding: 20px;
+  width: 30%;
+  background-color: #f5f8fe;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.trade-today-container > h2 {
+  font-size: 30px;
+  margin-bottom: 0px;
+}
+.trade-today-container > p {
+  font-size: 16px;
+  line-height: 1.5;
+  margin-bottom: 20px;
+  color: #5b616e;
+}
+.trade-today-container > img {
+  width: 50%;
+  max-width: 100%;
+}
+.trade-today-container > button {
+  padding: 10px 40px;
+  background-color: transparent;
+  border: 1px solid #0152fe;
+  color: black;
+  border-radius: 24px;
+  font-size: 16px;
+  cursor: pointer;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
