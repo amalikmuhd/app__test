@@ -1,5 +1,3 @@
-Certainly! Here's the documentation in README format:
-
 # React Ticker Data Application
 
 The React Ticker Data application is a simple user interface built using React.js that allows users to fetch and display ticker data from the Bitfinex API. Users can select a ticker, and the application will retrieve and display the corresponding trade and candle data for that ticker.
