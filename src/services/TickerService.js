@@ -11,22 +11,18 @@ const TickerService = {
       })
       .catch((error) => {
         console.log(error);
-        alert('Error fetching data get Ticker');
       });
   },
 
   getTradesData: (ticker) => {
-    return API.get(`/v2/candles/trade:1m:t${ticker.toUpperCase()}/hist`)
+    return API.get(`v1/trades/${ticker}`)
       .then((data) => {
         return data;
       })
       .catch((error) => {
         console.log(error);
-        alert('Error fetching data get Trades Data ');
       });
   },
 };
 
 export default TickerService;
-
-// const tickerData = await fetchTickerData(data[0]);

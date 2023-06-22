@@ -1,0 +1,8 @@
+.chart-data-container {
+  width: 70%;
+  background-color: transparent;
+  height: auto;
+  border-right: 1px solid #dedfe2;
+  display: flex;
+  align-items: center;
+}

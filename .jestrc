@@ -1,0 +1,6 @@
+{
+  "name": "app__test",
+  "jest": {
+    "verbose": true
+  }
+}

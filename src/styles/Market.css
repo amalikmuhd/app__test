@@ -1,0 +1,43 @@
+.market-container {
+  display: block;
+}
+.market-top-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px 0 0;
+  border-bottom: 1px solid #eceff1;
+}
+
+.market-top-container-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #eceff1;
+}
+.market-content-container {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+  height: 400px;
+  width: 100%;
+  padding: 20px 0;
+  overflow: auto;
+}
+
+.content-container-item--wrapper-container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.wrapper-item-inner-container {
+  display: flex;
+  flex-direction: column;
+  width: 100px;
+  text-align: left;
+  margin: 20px 0;
+}

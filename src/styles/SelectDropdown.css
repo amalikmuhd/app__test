@@ -1,0 +1,27 @@
+.dropdown-container {
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.13);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.dropdown-inner-container {
+  padding: 20px;
+  width: 20%;
+  height: 60%;
+  background-color: #f5f8fe;
+  display: flex;
+  border-radius: 10px;
+  flex-direction: column;
+  overflow: scroll;
+}
+
+.dropdown-inner-container > p {
+  font-size: 20px;
+  margin-bottom: 0px;
+  cursor: pointer;
+}
