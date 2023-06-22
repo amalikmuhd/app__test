@@ -1,70 +1,56 @@
-# Getting Started with Create React App
+Certainly! Here's the documentation in README format:
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# React Ticker Data Application
 
-## Available Scripts
+The React Ticker Data application is a simple user interface built using React.js that allows users to fetch and display ticker data from the Bitfinex API. Users can select a ticker, and the application will retrieve and display the corresponding trade and candle data for that ticker.
 
-In the project directory, you can run:
+## Installation
 
-### `npm start`
+To run the React Ticker Data application locally, follow these steps:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+1. Ensure that you have Node.js installed on your machine.
+2. Clone the GitHub repository for the React Ticker Data application:
+   ```
+   git clone https://github.com/mintlayer/react_test.git
+   ```
+3. Navigate to the project directory in your terminal.
+4. Install the project dependencies:
+   ```
+   npm install
+   ```
+5. Start the application:
+   ```
+   npm start
+   ```
+6. The application will be accessible at `http://localhost:3000` in your web browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Usage
 
-### `npm test`
+1. Select a Ticker:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+   - On the application's home page, you will find a dropdown menu labeled "Select a ticker."
+   - Click on the dropdown to view the available ticker options.
+   - Choose a ticker from the list by clicking on it.
 
-### `npm run build`
+2. View Ticker Data:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+   - After selecting a ticker, the application will fetch the corresponding trade and candle data from the Bitfinex API.
+   - The retrieved data will be displayed in a chart-like format within the application.
+   - The chart bars represent the trade data, and their height represents the volume of the trades.
+   - The chart bars will animate to simulate real-time movement.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+3. Change Ticker:
+   - To view data for a different ticker, simply repeat step 1 and choose a new ticker from the dropdown menu.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Additional Notes
 
-### `npm run eject`
+- The React Ticker Data application uses Axios, a popular HTTP client library, for making API requests to the Bitfinex API.
+- The application implements basic styling using CSS to provide a visually appealing user interface.
+- The chart bars' animation duration is dynamically set based on the volume of the trades, creating a real-time movement effect.
+- The application relies on the Bitfinex API to fetch ticker data. Ensure a stable internet connection for proper functionality.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Conclusion
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+The React Ticker Data application allows users to fetch and display ticker data from the Bitfinex API in a simple and intuitive user interface. By following the installation and usage instructions provided, users can explore different ticker data and visualize the trade and candle information in a chart-like representation.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+If you encounter any issues or have any questions, please refer to the project's GitHub repository for further support and documentation.
