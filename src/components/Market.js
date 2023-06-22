@@ -4,7 +4,7 @@ import {MdKeyboardArrowUp, MdKeyboardArrowDown} from 'react-icons/md';
 
 import '../styles/Market.css';
 
-const Market = ({loading, tickerTableData, selectedTicker}) => {
+const Market = ({loading, tickerTableData}) => {
   const [showData, setShow] = useState(false);
 
   return (
@@ -22,9 +22,8 @@ const Market = ({loading, tickerTableData, selectedTicker}) => {
         )}
       </section>
 
-      {showData && (
+      {!showData && (
         <section className="market-content-container">
-          <h2>{selectedTicker.toUpperCase()}</h2>
           {!loading &&
             tickerTableData.map((trade, index) => (
               <div
@@ -49,7 +48,9 @@ const Market = ({loading, tickerTableData, selectedTicker}) => {
                 </div>
                 <div className="wrapper-item-inner-container">
                   <span>type</span>
-                  <span>{trade.type}</span>
+                  <span style={{color: trade.type === 'buy' ? 'green' : 'red'}}>
+                    {trade.type}
+                  </span>
                 </div>
               </div>
             ))}

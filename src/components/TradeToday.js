@@ -6,13 +6,13 @@ const TradeToday = ({setShowDropdown, showDropdown, selectedTicker}) => {
   return (
     <div className="trade-today-container">
       <img src={diamondHands} />
-      <h2>Trade Bitcoin today</h2>
+      <h2>Trade Crypto Today</h2>
       <p>
         Create a Apptest account to buy and sell Bitcoin on the most secure
         crypto exchange.
       </p>
       <button onClick={() => setShowDropdown(!showDropdown)}>
-        {selectedTicker ? selectedTicker.toUpperCase() : 'Select Token'}
+        {selectedTicker ? selectedTicker.toUpperCase() : 'Select a Ticker'}
         <AiOutlineArrowDown />
       </button>
     </div>
