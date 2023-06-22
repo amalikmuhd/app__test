@@ -11,7 +11,7 @@ To run the React Ticker Data application locally, follow these steps:
 1. Ensure that you have Node.js installed on your machine.
 2. Clone the GitHub repository for the React Ticker Data application:
    ```
-   git clone https://github.com/mintlayer/react_test.git
+   git clone https://github.com/codeiwthmalik/app__test.git
    ```
 3. Navigate to the project directory in your terminal.
 4. Install the project dependencies:
