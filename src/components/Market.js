@@ -6,7 +6,6 @@ import '../styles/Market.css';
 
 const Market = ({loading, tickerTableData, selectedTicker}) => {
   const [showData, setShow] = useState(false);
-  console.log('tickerTableData', tickerTableData);
 
   return (
     <main className="market-container">
